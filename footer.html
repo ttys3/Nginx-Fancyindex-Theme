@@ -19,5 +19,37 @@
 </script>
 <script src="/fancyindex/js/history.js"></script>
 <script src="/fancyindex/lib/lightbox2/js/lightbox-plus-jquery.min.js"></script>
+<script>
+  /*!
+  *
+  * Copyright (C)
+  *  2019 荒野无灯 <HuangYeWuDeng#nanodm.net>
+  */
+  function generateList() {
+      function getFiletype(link) {
+          if (link.href.endsWith("/")) return "folder";
+          switch (link.href.split(".").pop().toLowerCase()) {
+              case "bmp":
+              case "gif":
+              case "jpeg":
+              case "jpg":
+              case "png":
+              case "tif":
+              case "tiff":
+                  return "image";
+              default:
+                  return "unkown";
+          }
+      }
+
+      let urls = document.querySelectorAll('#list .link a');
+      for (let u, t = 0; u = urls[t]; t++) {
+        "image" == getFiletype(u) && u.setAttribute("data-lightbox", "roadtrip");
+      }
+  }
+  $(document).ready(function(){
+    generateList();
+  });
+</script>
 </body>
 </html>
