@@ -120,13 +120,24 @@ html, body {
   background: none;
 }
 
+/* why to hide ? */
 tbody tr:first-child {
-  display: none;
+  /* display: none; */
 }
 
 tr.e {
   background:#f7f7f7;
 }
+
+/* 
+  table row bg color thanks to https://github.com/TheInsomniac/Nginx-Fancyindex-Theme/issues/7 
+  and https://github.com/TheInsomniac/Nginx-Fancyindex-Theme/issues/8
+*/
+tr:nth-child(2n) {
+  /* #F7F7F7 or  #F4F4F4 or  #F7F7F4*/
+  background-color: #F7F7F7;
+}
+
 
 th,td {
   padding:0.1em 0.5em;
